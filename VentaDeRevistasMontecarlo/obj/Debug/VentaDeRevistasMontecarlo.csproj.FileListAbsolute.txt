@@ -1,0 +1,10 @@
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\bin\Debug\VentaDeRevistasMontecarlo.exe.config
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\bin\Debug\VentaDeRevistasMontecarlo.exe
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\bin\Debug\VentaDeRevistasMontecarlo.pdb
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\obj\Debug\VentaDeRevistasMontecarlo.csprojAssemblyReference.cache
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\obj\Debug\VentaDeRevistasMontecarlo.f_ventaDeRevistas.resources
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\obj\Debug\VentaDeRevistasMontecarlo.Properties.Resources.resources
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\obj\Debug\VentaDeRevistasMontecarlo.csproj.GenerateResource.cache
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\obj\Debug\VentaDeRevistasMontecarlo.csproj.CoreCompileInputs.cache
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\obj\Debug\VentaDeRevistasMontecarlo.exe
+C:\Users\jose_\OneDrive\Escritorio\Jose\Facultad\GitHub\TP4-Montecarlo\VentaDeRevistasMontecarlo\obj\Debug\VentaDeRevistasMontecarlo.pdb
