@@ -63,7 +63,7 @@ namespace VentaDeRevistasMontecarlo
             cantidad = Convert.ToInt32(txt_cant_sim.Text);
             limInf = Convert.ToInt32(txt_limInf.Text);
             limSup = Convert.ToInt32(txt_limSup.Text);
-            SimuladorRevistas simulador = new SimuladorRevistas();
+            SimuladorRevistas2 simulador = new SimuladorRevistas2();
             simulacion = simulador.ObtenerSimulacion(cantidad, limInf, limSup);
             llenarGrilla();
 

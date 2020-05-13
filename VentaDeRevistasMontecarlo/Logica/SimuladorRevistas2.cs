@@ -7,7 +7,7 @@ using VentaDeRevistasMontecarlo.Tools;
 
 namespace VentaDeRevistasMontecarlo.Logica
 {
-    class SimuladorRevistas
+    class SimuladorRevistas2
     {
         private DistribucionDeProb AbrePuerta;
         private DistribucionDeProb AtiendePuerta;
@@ -16,7 +16,7 @@ namespace VentaDeRevistasMontecarlo.Logica
         private DistribucionDeProb SuscripcionMujer;
         private DistribucionDeProb SuscripcionHombre;
 
-        public SimuladorRevistas()
+        public SimuladorRevistas2()
         {
 
             AbrePuerta = new DistribucionDeProb("AbrePuerta");
@@ -88,32 +88,46 @@ namespace VentaDeRevistasMontecarlo.Logica
 
             // Variables varias
             Random aleatorio = new Random(); // Valor RND
-            int acumSusc = 0; 
-            int acumVentas = 0;
-            int num = 0;
+            int num;
             int z = 0;
 
 
+            for (int a = 0; a < vectorSimulacion_menos1.Length; a++)
+            {
+                if (a == 7 || a == 10)
+                {
+                    vectorSimulacion_menos1[a] = "0";
+                }
+                else vectorSimulacion_menos1[a] = " ";
+            }
 
 
             for (int i = 1; i <= cantidad; i++)
             {
 
-                // Reseteo los vectores para cara simulacion
-                for (int j = 0; j < 11; j++)
+                // Reseteo el vector para cada simulacion
+                for (int j = 0; j < vectorSimulacion.Length; j++)
                 {
-                    vectorSimulacion[j] = " ";
-                    vectorSimulacion_menos1[j] = " ";
+                    if (j == 7 || j == 10)
+                    {
+                        // Conservo los valores de los acumuladores
+                        vectorSimulacion[j] = vectorSimulacion_menos1[j];
+                    }
+                    else vectorSimulacion[j] = " ";
+                    
                 }
 
-                
+
 
                 // Visitas
                 vectorSimulacion[0] = (i).ToString();
-                // RND AbrePuerta
+
+
+
+                // RND AbrePuerta (si abre la puerta o no)
                 double RND = Truncate.truncar(aleatorio.NextDouble(), 3);
                 vectorSimulacion[1] = RND.ToString();
-                // AbrePuerta
+
                 foreach (Opcion opcion in AbrePuerta.opciones)
                 {
                     if (RND > opcion.acum)
@@ -124,10 +138,10 @@ namespace VentaDeRevistasMontecarlo.Logica
 
 
 
-                // RND HombreMujer
+                // RND HombreMujer (Si es mujer o hombre)
                 RND = Truncate.truncar(aleatorio.NextDouble(), 3);
                 vectorSimulacion[3] = RND.ToString();
-                // Hombre/Mujer
+
                 if (vectorSimulacion[2] == "SI")
                 {
                     foreach (Opcion opcion in AtiendePuerta.opciones)
@@ -140,7 +154,7 @@ namespace VentaDeRevistasMontecarlo.Logica
 
 
 
-                    // RND Venta
+                    // RND Venta (si vendio o no vendio)
                     RND = Truncate.truncar(aleatorio.NextDouble(), 3);
                     vectorSimulacion[5] = RND.ToString();
 
@@ -152,7 +166,7 @@ namespace VentaDeRevistasMontecarlo.Logica
                             {
                                 vectorSimulacion[6] = opcion.nombre;
                             }
-                            
+
                         }
                     }
                     else
@@ -166,15 +180,26 @@ namespace VentaDeRevistasMontecarlo.Logica
                         }
                     }
 
+
+
+
+
+                    // Cuento las ventas realizadas.
                     if (vectorSimulacion[6] == "SI")
                     {
-                        acumVentas++;
+                        vectorSimulacion[7] = (Convert.ToInt32(vectorSimulacion[7]) + 1).ToString();
                     }
 
-                    // RND Suscripcion
+
+
+
+
+
+
+
+                    // RND Suscripcion (Cuantas suscripciones compro dependiendo el sexo)
                     RND = Truncate.truncar(aleatorio.NextDouble(), 3);
                     vectorSimulacion[8] = RND.ToString();
-
 
                     if (vectorSimulacion[6] == "SI")
                     {
@@ -200,14 +225,12 @@ namespace VentaDeRevistasMontecarlo.Logica
                             }
                         }
                     }
-
-                    
-
-
-
-
                 }
 
+
+
+
+                // Acumulo las suscripciones vendidas
                 if (vectorSimulacion[9] == " ")
                 {
                     num = 0;
@@ -216,24 +239,32 @@ namespace VentaDeRevistasMontecarlo.Logica
                 {
                     num = Convert.ToInt32(vectorSimulacion[9]);
                 }
-                acumSusc += num;
-                vectorSimulacion[10] = acumSusc.ToString();
+                vectorSimulacion[10] = (Convert.ToInt32(vectorSimulacion_menos1[10]) + num).ToString();
 
-                vectorSimulacion[7] = acumVentas.ToString();
 
-                
 
+
+
+                // Copio el vector simulacion al vector menos 1 para la proxima simulacion.
+                for ( int r = 0 ; r < vectorSimulacion.Length ; r++ )
+                {
+                    vectorSimulacion_menos1[r] = vectorSimulacion[r];
+                }
+
+
+
+                // Pregunto si debo mostrar la informacion de la simulacion actual o no.
                 if (i >= limInf && i <= limSup)
                 {
                     simulaciones[z] = new string[11];
                     for (int u = 0; u < 11; u++)
                     {
-                        
+
                         simulaciones[z][u] = vectorSimulacion[u];
 
                     }
                     z++;
-                    
+
                 }
 
             }
